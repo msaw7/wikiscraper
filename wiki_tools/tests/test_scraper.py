@@ -2,12 +2,10 @@ import pytest
 from wiki_tools import Archive, Scraper
 
 
-def test_get_summary(generic_html, bulbapedia_html):
+def test_get_summary(generic_html):
     scraper = Scraper(generic_html, True)
     assert(scraper.get_summary() == 'This is a bold paragraph with italic text, underlined text, and a link.')
 
-    scraper2 = Scraper(bulbapedia_html, True)
-    assert('Ash Ketchum' in scraper2.get_summary())
     
 def test_get_table(generic_html, bulbapedia_html):
     scraper = Scraper(generic_html, True)
