@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+pandas
+numpy
+wordfreq
+tabulate
+regex
+matplotlib
+lxml
+html5lib

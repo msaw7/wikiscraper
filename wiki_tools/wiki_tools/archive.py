@@ -1,9 +1,5 @@
-from io import StringIO
-import requests
-from bs4 import BeautifulSoup
 import pandas as pd
 from tabulate import tabulate
-import csv
 import json
 from pathlib import Path
 from .scraper import Scraper
@@ -23,7 +19,7 @@ class Archive:
         self.end_marker = end_marker
 
 
-    def count_words(self, phrase: str, scrape_links: bool=False) -> None | list:
+    def count_words(self, phrase: str, scrape_links: bool=False) -> None | list[str]:
         # Fetch dictionary file if present.
         global_dictionary = {}
         if(self.dict_path.is_file()):
