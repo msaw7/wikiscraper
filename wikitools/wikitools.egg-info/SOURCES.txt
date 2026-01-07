@@ -1,0 +1,14 @@
+README.md
+setup.py
+tests/__init__.py
+tests/conftest.py
+tests/test_analysis.py
+tests/test_scraper.py
+wikitools/__init__.py
+wikitools/archive.py
+wikitools/scraper.py
+wikitools.egg-info/PKG-INFO
+wikitools.egg-info/SOURCES.txt
+wikitools.egg-info/dependency_links.txt
+wikitools.egg-info/requires.txt
+wikitools.egg-info/top_level.txt
