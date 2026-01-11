@@ -21,3 +21,4 @@ Thumbs.db
 
 # 
 *.json
+*.egg-info
