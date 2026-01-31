@@ -52,7 +52,9 @@ class Scraper:
         paragraph = paragraph.get_text()
         return paragraph
 
-    def get_table(self, n: int, first_row_is_header: bool = False) -> tuple[pd.DataFrame, list] | None:
+    def get_table(
+        self, n: int, first_row_is_header: bool = False
+    ) -> tuple[pd.DataFrame, list] | None:
         """
         Gets the n-th table of an article and its sorted list of word appearances.
 
@@ -137,7 +139,7 @@ class Scraper:
         for link in links:
             url = link.get("href")
             # Check if the url links inside the wiki
-            if (url is not None and url[0 : len(wiki_identifier)] == wiki_identifier):
+            if url is not None and url[0 : len(wiki_identifier)] == wiki_identifier:
                 wiki_links.append(url[len(wiki_identifier) :])
 
         return wiki_links

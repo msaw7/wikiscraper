@@ -104,22 +104,27 @@ def auto_count_words(phrase: str, depth: int, wait: float):
 def main() -> int:
     parser = argparse.ArgumentParser(description="Simple scraper for Bulbapedia")
 
-    parser.add_argument("-s", "--summary", type=str)
+    parser.add_argument("-s", "--summary", type=str, help="Extract first paragraph")
 
-    parser.add_argument("-t", "--table", type=str)
+    parser.add_argument("-t", "--table", type=str, help="Export table to CSV")
     parser.add_argument("-n", "--number", type=int)
     parser.add_argument("-frih", "--first-row-is-header", action="store_true")
 
-    parser.add_argument("-cw", "--count-words", type=str)
+    parser.add_argument("-cw", "--count-words", type=str, help="Log word counts (JSON)")
 
     parser.add_argument(
-        "-arwf", "--analyze-relative-word-frequency", action="store_true"
+        "-arwf",
+        "--analyze-relative-word-frequency",
+        action="store_true",
+        help="Compare frequencies and plot",
     )
     parser.add_argument("-m", "--mode", type=str)
     parser.add_argument("-c", "--count", type=int)
     parser.add_argument("-ch", "--chart", type=str)
 
-    parser.add_argument("-acw", "--auto-count-words", type=str)
+    parser.add_argument(
+        "-acw", "--auto-count-words", type=str, help="Recursive crawling and counting"
+    )
     parser.add_argument("-d", "--depth", type=int)
     parser.add_argument("-w", "--wait", type=float)
 

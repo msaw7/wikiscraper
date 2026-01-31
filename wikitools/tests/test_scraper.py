@@ -41,7 +41,7 @@ def test_count_words(hidden_content_html):
     # Elements outside of content should not be included
     assert "bar" not in words
     assert "abc" not in words
-    
+
     # Words should be converted to lowercase
     assert "hide" in words
     assert "HIDE" not in words

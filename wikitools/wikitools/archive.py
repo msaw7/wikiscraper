@@ -145,7 +145,9 @@ class Archive:
         wiki_occurences["occ_wiki"] /= total_wiki_occurences
 
         if mode == "article":
-            wiki_occurences = wiki_occurences.sort_values(by=["occ_wiki"], ascending=False)
+            wiki_occurences = wiki_occurences.sort_values(
+                by=["occ_wiki"], ascending=False
+            )
             wiki_occurences.head(count)
 
             # We avoid using pandas merge to not fetch entire wordfreq dictionary.
@@ -155,11 +157,17 @@ class Archive:
             return wiki_occurences
 
         else:  # mode == 'language'
-            lang_most_common = wordfreq.top_n_list(self.wiki_lang, count, wordlist="best")
+            lang_most_common = wordfreq.top_n_list(
+                self.wiki_lang, count, wordlist="best"
+            )
 
             lang_dict = {}
             for word in lang_most_common:
                 lang_dict[word] = wordfreq.word_frequency(word, self.wiki_lang)
-                lang_occurences = pd.DataFrame.from_dict(lang_dict, orient="index", columns=["occ_lang"])
+                lang_occurences = pd.DataFrame.from_dict(
+                    lang_dict, orient="index", columns=["occ_lang"]
+                )
 
-            return lang_occurences.merge(wiki_occurences, how="left", left_index=True, right_index=True)
+            return lang_occurences.merge(
+                wiki_occurences, how="left", left_index=True, right_index=True
+            )
