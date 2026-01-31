@@ -24,8 +24,12 @@ def test_analysis(bulbapedia_html):
         _END_MARKER,
         Path(_DICT_PATH),
     )
-    with patch("wikitools.archive.open", mock_open(read_data=mock_content)):
+    with (
+        patch("wikitools.archive.open", mock_open(read_data=mock_content)),
+        patch("pathlib.Path.is_file", return_value=True),
+    ):
         result = archive.analyze_relative_word_frequency("article", 3)
+        print(result)
         assert "occ_wiki" in result.columns
         assert "occ_lang" in result.columns
         assert result.at["pokémon", "occ_wiki"] == 0.5

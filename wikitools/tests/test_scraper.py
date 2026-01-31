@@ -1,5 +1,5 @@
 import pytest
-from wikitools import Archive, Scraper
+from wikitools import Scraper
 
 
 def test_get_summary(generic_html):
